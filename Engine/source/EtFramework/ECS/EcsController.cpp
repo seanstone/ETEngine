@@ -392,7 +392,7 @@ void EcsController::RemoveComponents(T_EntityId const entity, T_CompTypeList con
 //-----------------------------------------
 // EcsController::RegisterOnEntityAdded
 //
-T_EntityEventId EcsController::RegisterOnEntityAdded(T_EntityEventFn& fn)
+T_EntityEventId EcsController::RegisterOnEntityAdded(T_EntityEventFn const& fn)
 {
 	return m_EntityEvents.Register(detail::E_EcsEvent::Added, detail::T_EntityEventCallbackInternal(
 		[this, fn](detail::T_EcsEvent const flags, detail::EntityEventData const* const evnt) -> void
@@ -405,7 +405,7 @@ T_EntityEventId EcsController::RegisterOnEntityAdded(T_EntityEventFn& fn)
 //-------------------------------------------
 // EcsController::RegisterOnEntityRemoved
 //
-T_EntityEventId EcsController::RegisterOnEntityRemoved(T_EntityEventFn& fn)
+T_EntityEventId EcsController::RegisterOnEntityRemoved(T_EntityEventFn const& fn)
 {
 	return m_EntityEvents.Register(detail::E_EcsEvent::Removed, detail::T_EntityEventCallbackInternal(
 		[this, fn](detail::T_EcsEvent const flags, detail::EntityEventData const* const evnt) -> void

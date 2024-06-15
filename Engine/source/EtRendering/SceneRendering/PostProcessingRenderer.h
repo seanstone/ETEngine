@@ -25,7 +25,7 @@ public:
 	void Initialize();
 
 	void EnableInput();
-	void Draw(T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(T_FbLoc const)>& onDrawOverlaysFn);
+	void Draw(T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(T_FbLoc const)> const& onDrawOverlaysFn);
 
 	T_FbLoc GetTargetFBO() { return m_CollectFBO; }
 	TextureData* GetTargetTexture() { return m_CollectTex; }

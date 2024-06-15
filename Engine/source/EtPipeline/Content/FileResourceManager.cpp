@@ -111,7 +111,7 @@ bool FileResourceManager::GetLoadData(core::I_Asset const* const asset, std::vec
 	core::File* const dbFile = static_cast<core::File*>(dbEntry);
 	if (!(dbFile->Open(core::FILE_ACCESS_MODE::Read)))
 	{
-		LOG(FS("Failed to open file '%s'", dbFile->GetName()), core::LogLevel::Warning);
+		LOG(FS("Failed to open file '%s'", dbFile->GetName().c_str()), core::LogLevel::Warning);
 		return false;
 	}
 

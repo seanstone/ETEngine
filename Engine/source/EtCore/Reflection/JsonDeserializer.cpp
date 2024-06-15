@@ -35,7 +35,7 @@ bool JsonDeserializer::DeserializeRoot(rttr::variant& var, rttr::type const call
 //
 // For deserializing a non pointer object
 //
-bool JsonDeserializer::DeserializeRoot(rttr::instance& inst, TypeInfo const& ti, JSON::Object const* const parentObj)
+bool JsonDeserializer::DeserializeRoot(rttr::instance const& inst, TypeInfo const& ti, JSON::Object const* const parentObj)
 {
 	ET_ASSERT(parentObj->value.size() == 1u);
 	ET_ASSERT(parentObj->value[0].second->GetType() == JSON::JSON_Object);
@@ -745,7 +745,7 @@ bool JsonDeserializer::ReadObject(rttr::variant& var, TypeInfo const& ti, JSON::
 //----------------------------------------
 // JsonDeserializer::ReadObjectProperties
 //
-bool JsonDeserializer::ReadObjectProperties(rttr::instance& inst, TypeInfo const& ti, JSON::Object const* const jObj)
+bool JsonDeserializer::ReadObjectProperties(rttr::instance const& inst, TypeInfo const& ti, JSON::Object const* const jObj)
 {
 	for (JSON::Pair const& el : jObj->value)
 	{

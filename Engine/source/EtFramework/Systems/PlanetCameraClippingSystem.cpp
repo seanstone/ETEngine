@@ -28,7 +28,7 @@ PlanetCameraLinkSystem::PlanetCameraLinkSystem()
 //
 // Set the cameras clipping planes to the planets size
 //
-void PlanetCameraLinkSystem::Process(ComponentRange<PlanetCameraLinkSystemView>& range) 
+void PlanetCameraLinkSystem::Process(ComponentRange<PlanetCameraLinkSystemView>& range)
 {
 	for (PlanetCameraLinkSystemView& view : range)
 	{

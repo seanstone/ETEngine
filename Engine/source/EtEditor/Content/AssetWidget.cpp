@@ -49,9 +49,9 @@ AssetWidget::AssetWidget(pl::EditorAssetBase* const asset)
 	else
 	{
 		Pango::AttrList labelAttributes;
-		labelAttributes.insert(Pango::Attribute::create_attr_scale(2.5));
-		labelAttributes.insert(Pango::Attribute::create_attr_weight(Pango::WEIGHT_BOLD));
-		labelAttributes.insert(Pango::Attribute::create_attr_foreground_alpha(50000));
+		{ auto attr = Pango::Attribute::create_attr_scale(2.5); labelAttributes.insert(attr); }
+		{ auto attr = Pango::Attribute::create_attr_weight(Pango::WEIGHT_BOLD); labelAttributes.insert(attr); }
+		{ auto attr = Pango::Attribute::create_attr_foreground_alpha(50000); labelAttributes.insert(attr); }
 
 		Gtk::Label* const viewLabel = Gtk::make_managed<Gtk::Label>(core::FileUtil::ExtractExtension(asset->GetAsset()->GetName()).c_str());
 		viewLabel->set_attributes(labelAttributes);

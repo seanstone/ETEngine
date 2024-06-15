@@ -51,7 +51,7 @@ inline void SafeDelete(T &pObjectToDelete)
 #include <EtCore/Containers/VectorUtil.h>
 
 #define TIME et::core::ContextManager::GetInstance()->GetActiveContext()->time // #todo: refactor and remove macro
-#define LOG(fmt, ...) et::core::Logger::Log(fmt, __VA_ARGS__)
+#define LOG(fmt, ...) et::core::Logger::Log(fmt, ##__VA_ARGS__)
 
 #include <EtCore/Memory/Pointer.h>
 

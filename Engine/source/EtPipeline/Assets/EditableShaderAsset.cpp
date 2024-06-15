@@ -291,7 +291,7 @@ bool EditableShaderAsset::ReplaceInclude(std::string &line)
 	}
 
 	I_AssetPtr const* const rawAssetPtr = foundRefIt->GetAsset();
-	ET_ASSERT(rawAssetPtr->GetType() == rttr::type::get<core::StubData>(), "Asset reference found at path %s is not of type StubData", path);
+	ET_ASSERT(rawAssetPtr->GetType() == rttr::type::get<core::StubData>(), "Asset reference found at path %s is not of type StubData", path.c_str());
 	AssetPtr<core::StubData> stubPtr = *static_cast<AssetPtr<core::StubData> const*>(rawAssetPtr);
 
 	// extract the shader string

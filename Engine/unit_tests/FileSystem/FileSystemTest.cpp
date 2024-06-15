@@ -151,7 +151,7 @@ TEST_CASE( "copy file", "[filesystem]" )
 	//Deleting should handle closing the file
 	bool deleteResult = outputFile->Delete();
 	REQUIRE( deleteResult == true );
-	deleteResult = nullptr;
+	deleteResult = false;
 
 	//The file should be gone from the directory
 	bool found = false;

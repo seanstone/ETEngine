@@ -63,6 +63,13 @@ T_EntityId EcsController::AddEntity(TComponentType& component1, Args... args)
 	return AddEntityChild(INVALID_ENTITY_ID, component1, args...);
 }
 
+template<typename TComponentType, typename... Args>
+T_EntityId EcsController::AddEntity(TComponentType&& component1, Args... args)
+{
+	auto comp = component1;
+	return AddEntity(comp, args...);
+}
+
 //-------------------------------
 // EcsController::AddEntityChild
 //
@@ -71,6 +78,13 @@ T_EntityId EcsController::AddEntityChild(T_EntityId const parent, TComponentType
 {
 	std::vector<RawComponentPtr> components;
 	return detail::AddToEcs(*this, parent, components, component1, args...);
+}
+
+template<typename TComponentType, typename... Args>
+T_EntityId EcsController::AddEntityChild(T_EntityId const parent, TComponentType&& component1, Args... args)
+{
+	auto comp = component1;
+	return AddEntityChild(parent, comp, args...);
 }
 
 //--------------------------------
@@ -83,6 +97,13 @@ T_EntityId EcsController::DuplicateEntity(T_EntityId const dupe, TComponentType&
 	return detail::DupeInEcs(*this, dupe, components, component1, args...);
 }
 
+template<typename TComponentType, typename... Args>
+T_EntityId EcsController::DuplicateEntity(T_EntityId const dupe, TComponentType&& component1, Args... args)
+{
+	auto comps = component1;
+	return DuplicateEntity(dupe, comps, args...);
+}
+
 //------------------------------
 // EcsController::AddComponents
 //
@@ -93,6 +114,13 @@ void EcsController::AddComponents(T_EntityId const entity, TComponentType& compo
 	detail::GenCompPtrList(components, component1, args...);
 
 	AddComponents(entity, components);
+}
+
+template<typename TComponentType, typename... Args>
+void EcsController::AddComponents(T_EntityId const entity, TComponentType&& component1, Args... args)
+{
+	auto comp = component1;
+	AddComponents(entity, component1, args...);
 }
 
 //---------------------------------
@@ -108,7 +136,7 @@ void EcsController::RemoveComponents(T_EntityId const entity)
 // EcsController::RegisterOnComponentAdded
 //
 template<typename TComponentType>
-T_CompEventId EcsController::RegisterOnComponentAdded(T_CompEventFn<TComponentType>& fn)
+T_CompEventId EcsController::RegisterOnComponentAdded(T_CompEventFn<TComponentType> const& fn)
 {
 	return m_ComponentEvents[TComponentType::GetTypeIndex()].Register(detail::E_EcsEvent::Added, detail::T_ComponentEventCallbackInternal(
 		[this, fn](detail::T_EcsEvent const flags, detail::ComponentEventData const* const evnt) -> void
@@ -124,7 +152,7 @@ T_CompEventId EcsController::RegisterOnComponentAdded(T_CompEventFn<TComponentTy
 // Deinit components
 //
 template<typename TComponentType>
-T_CompEventId EcsController::RegisterOnComponentRemoved(T_CompEventFn<TComponentType>& fn)
+T_CompEventId EcsController::RegisterOnComponentRemoved(T_CompEventFn<TComponentType> const& fn)
 {
 	return m_ComponentEvents[TComponentType::GetTypeIndex()].Register(detail::E_EcsEvent::Removed, detail::T_ComponentEventCallbackInternal(
 		[this, fn](detail::T_EcsEvent const flags, detail::ComponentEventData const* const evnt) -> void

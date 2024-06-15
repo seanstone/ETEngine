@@ -40,7 +40,7 @@ bool BinaryDeserializer::DeserializeRoot(rttr::variant& var, rttr::type const ca
 //
 // For deserializing a non pointer object
 //
-bool BinaryDeserializer::DeserializeRoot(rttr::instance& inst, TypeInfo const& ti, std::vector<uint8>const& data)
+bool BinaryDeserializer::DeserializeRoot(rttr::instance const& inst, TypeInfo const& ti, std::vector<uint8>const& data)
 {
 	if (!InitFromHeader(data, ti.m_Type))
 	{
@@ -715,7 +715,7 @@ bool BinaryDeserializer::ReadObject(rttr::variant& var, TypeInfo const& ti)
 //
 // read properties on an existing object instance
 //
-bool BinaryDeserializer::ReadObjectProperties(rttr::instance& inst, TypeInfo const& ti, uint16 const propCount)
+bool BinaryDeserializer::ReadObjectProperties(rttr::instance const& inst, TypeInfo const& ti, uint16 const propCount)
 {
 	for (uint16 propIdx = 0u; propIdx < propCount; ++propIdx)
 	{

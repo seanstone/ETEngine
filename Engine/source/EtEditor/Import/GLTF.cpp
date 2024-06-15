@@ -96,7 +96,7 @@ bool glTF::ParseGLTFData(const std::vector<uint8>& binaryContent, const std::str
 bool glTF::ParseGLBHeader(core::BinaryReader* binReader, Header &header)
 {
 	header.magic = binReader->Read<uint32>();
-	if (!(header.magic == *reinterpret_cast<uint32*>("glTF")))
+	if (!(header.magic == *reinterpret_cast<const uint32*>("glTF")))
 	{
 		LOG("invalid glb file header!", core::LogLevel::Warning);
 		return false;

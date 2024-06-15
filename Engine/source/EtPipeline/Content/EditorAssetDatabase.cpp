@@ -436,7 +436,7 @@ void EditorAssetDatabase::RegisterNewAsset(EditorAssetBase* const asset)
 	core::JsonSerializer serializer;
 	if (!serializer.SerializeToData(asset, serializedData))
 	{
-		ET_ASSERT(false, "failed to deserizlize asset config '%s'", asset->GetAsset()->GetName());
+		ET_ASSERT(false, "failed to deserizlize asset config '%s'", asset->GetAsset()->GetName().c_str());
 		return;
 	}
 
@@ -444,7 +444,7 @@ void EditorAssetDatabase::RegisterNewAsset(EditorAssetBase* const asset)
 	core::File* const contentFile = new core::File(etacFn, m_Directory);
 	if (contentFile->Exists())
 	{
-		ET_ASSERT(false, "Failed to register new asset because asset content already existed! File: %s", contentFile->GetName());
+		ET_ASSERT(false, "Failed to register new asset because asset content already existed! File: %s", contentFile->GetName().c_str());
 		delete contentFile;
 		return;
 	}
@@ -453,7 +453,7 @@ void EditorAssetDatabase::RegisterNewAsset(EditorAssetBase* const asset)
 	outFlags.SetFlags(core::FILE_ACCESS_FLAGS::FLAGS::Create | core::FILE_ACCESS_FLAGS::FLAGS::Exists);
 	if (!contentFile->Open(core::FILE_ACCESS_MODE::Write, outFlags))
 	{
-		ET_ASSERT(false, "Failed to open asset content file for writing '%s'", contentFile->GetName());
+		ET_ASSERT(false, "Failed to open asset content file for writing '%s'", contentFile->GetName().c_str());
 		delete contentFile;
 		return;
 	}
@@ -545,7 +545,7 @@ void EditorAssetDatabase::AddAsset(core::File* const configFile)
 {
 	if (!configFile->Open(core::FILE_ACCESS_MODE::Read))
 	{
-		ET_ASSERT(false, "couldn't open asset config '%s'", configFile->GetName());
+		ET_ASSERT(false, "couldn't open asset config '%s'", configFile->GetName().c_str());
 		return;
 	}
 
@@ -558,7 +558,7 @@ void EditorAssetDatabase::AddAsset(core::File* const configFile)
 	core::JsonDeserializer deserializer;
 	if (!deserializer.DeserializeFromData(content, asset))
 	{
-		ET_ASSERT(false, "failed to deserizlize asset config '%s'", configFile->GetName());
+		ET_ASSERT(false, "failed to deserizlize asset config '%s'", configFile->GetName().c_str());
 		return;
 	}
 

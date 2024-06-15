@@ -15,12 +15,12 @@ bool FILE_BASE::Close( FILE_HANDLE handle )
 	return result != -1;
 }
 
-bool FILE_BASE::ReadFile( FILE_HANDLE handle, std::vector<uint8> & content )
+bool FILE_BASE::ReadFile( FILE_HANDLE handle, std::vector<uint8> & content, uint64 const numBytes, uint64 const offset )
 {
     char buffer[LINUX_FILE_BUFFER_SIZE];
     int32 ret_in = 0;
     while((ret_in = read (handle, &buffer, LINUX_FILE_BUFFER_SIZE)) > 0){}
-    content = buffer;
+    // FIXME content = buffer;
     return true;;
 }
 

@@ -54,7 +54,7 @@ size_t ComponentPool::GetSize() const
 //
 // Add an component to the end of the buffer (without knowing its static type data)
 //
-void ComponentPool::Append(void const* const componentData)
+void ComponentPool::Append2(void const* const componentData)
 {
 	size_t const typeSize = ComponentRegistry::Instance().GetSize(m_ComponentType);
 	size_t const byteIdx = m_Buffer.size();

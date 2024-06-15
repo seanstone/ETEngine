@@ -38,6 +38,15 @@ void Write(T_ParameterBlock const block, size_t const offset, TParamType const& 
 	memcpy(block + offset, &param, sizeof(TParamType));
 }
 
+//---------------------------------
+// Write
+//
+template<typename TParamType>
+void Write(T_ParameterBlock const block, size_t const offset, TParamType const& param)
+{
+	memcpy(block + offset, &param, sizeof(TParamType));
+}
+
 
 } // namespace parameters
 } // namespace render

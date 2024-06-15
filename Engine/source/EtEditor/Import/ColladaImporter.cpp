@@ -292,7 +292,7 @@ bool ColladaImporter::Import(std::vector<uint8> const& importData, std::string c
 		
 					default:
 						ET_ASSERT(false, "Unhandled input semantic");
-						return *reinterpret_cast<std::vector<vec3>*>(nullptr);
+						return *(std::vector<vec3>*)(nullptr);
 					}
 				};
 

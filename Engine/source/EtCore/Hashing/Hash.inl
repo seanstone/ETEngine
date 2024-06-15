@@ -53,7 +53,7 @@ constexpr T_Hash GetHash(std::string const& str)
 //
 constexpr T_Hash GetDataHash(uint8 const* const data, size_t const count)
 {
-	return detail::hash_gen(reinterpret_cast<char const*>(data), count);
+	return detail::hash_gen((char const*)(data), count);
 }
 
 //-------------------------------

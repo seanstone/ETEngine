@@ -31,7 +31,7 @@ public:
 	//---------------------
 
 	friend class ResourceManager; 
-	friend class I_AssetPtr;
+	friend class et::I_AssetPtr;
 	friend class pl::EditorAssetBase;
 
 	struct Reference final

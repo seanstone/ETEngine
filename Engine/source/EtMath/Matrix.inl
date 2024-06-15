@@ -200,7 +200,7 @@ operator*(const matrix<m, n, T>& lhs, const T rhs)
 //====================
 
 
-template <unsigned int m, unsigned int n, class T>
+template <uint8 m, uint8 n, class T>
 inline matrix<m, n, T> transpose(const matrix<m, n, T>& mat)
 {
 	matrix<n, m, T> result;
@@ -346,13 +346,13 @@ inline matrix<4, 4, T> inverse(const matrix<4, 4, T>& mat)
 	return result * detFrac;
 }
 
-template<unsigned int m, unsigned int n, typename T>
+template<uint8 m, uint8 n, typename T>
 T const* valuePtr(matrix<m, n, T> const& mat)
 {
 	return &(mat.data[0][0]);
 }
 
-template<unsigned int m, unsigned int n, typename T>
+template<uint8 m, uint8 n, typename T>
 T* valuePtr(matrix<m, n, T>& mat)
 {
 	return &(mat.data[0][0]);

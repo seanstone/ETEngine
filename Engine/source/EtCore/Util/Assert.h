@@ -37,15 +37,24 @@ namespace et { namespace detail {
 #	endif // ET_PLATFORM_WIN														
 
 
+#	ifdef ET_PLATFORM_WIN
 #	define ET_ASSERT_IMPL(condition, ...)\
-	__pragma(warning(push))\
-	__pragma(warning(disable: 4127))\
-	do\
-	{\
-		if (ET_PROCESS_ASSERT_IMPL(condition, __VA_ARGS__)) ET_ASSERT_HANDLER_DEFAULT();\
-	}\
-	while (false)\
-	__pragma(warning(pop))
+		__pragma(warning(push))\
+		__pragma(warning(disable: 4127))\
+		do\
+		{\
+			if (ET_PROCESS_ASSERT_IMPL(condition, __VA_ARGS__)) ET_ASSERT_HANDLER_DEFAULT();\
+		}\
+		while (false)\
+		__pragma(warning(pop))
+#	else
+#	define ET_ASSERT_IMPL(condition, ...)\
+		do\
+		{\
+			if (ET_PROCESS_ASSERT_IMPL(condition, __VA_ARGS__)) ET_ASSERT_HANDLER_DEFAULT();\
+		}\
+		while (false)
+#	endif
 
 #endif // ET_CT_ASSERT
 

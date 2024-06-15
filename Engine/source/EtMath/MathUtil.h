@@ -31,17 +31,17 @@ typedef double float64;
 #define ETM_DEFAULT_EPSILON_T static_cast<T>(ETM_DEFAULT_EPSILON)
 
 //180 degrees
-static const float PI = 3.1415926535897932384626433832795028841971693993751058209749445f;
+static constexpr float PI = 3.1415926535897932384626433832795028841971693993751058209749445f;
 //360 degrees
-static const float PI2 = PI * 2;
+static constexpr float PI2 = PI * 2;
 //90 degrees
-static const float PI_DIV2 = PI * 0.5f;
+static constexpr float PI_DIV2 = PI * 0.5f;
 //45 degrees
-static const float PI_DIV4 = PI * 0.25f;
+static constexpr float PI_DIV4 = PI * 0.25f;
 //30 degrees
-static const float PI_DIV6 = PI / 6.f;
+static constexpr float PI_DIV6 = PI / 6.f;
 //1 degree
-static const float PI_DIV180 = PI / 180.f;
+static constexpr float PI_DIV180 = PI / 180.f;
 
 template <class T>
 inline bool nearEquals(T lhs, T rhs, T epsilon = ETM_DEFAULT_EPSILON_T )

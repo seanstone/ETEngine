@@ -47,7 +47,7 @@ void BootConfig::LoadFromPackage(BootConfig& cfg, core::I_Package* const pkg)
 	core::JsonDeserializer deserializer;
 	if (!deserializer.DeserializeFromData(rawData, cfg))
 	{
-		ET_ASSERT(false, "Failed to deserialize boot config at '%s'!", s_FileName);
+		ET_ASSERT(false, "Failed to deserialize boot config at '%s'!", s_FileName.c_str());
 	}
 }
 

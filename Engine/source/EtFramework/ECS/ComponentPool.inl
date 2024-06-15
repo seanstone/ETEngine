@@ -39,11 +39,11 @@ TComponentType const& ComponentPool::Get(size_t const idx) const
 //
 // Add an component to the end of the buffer
 //
-template<typename TComponentType, typename std::enable_if_t<!std::is_pointer<TComponentType>::value>*>
+template<typename TComponentType>
 void ComponentPool::Append(TComponentType const& component)
 {
-	ET_ASSERT(TComponentType::GetTypeIndex() == m_ComponentType);
-	Append(&component);
+	//ET_ASSERT(TComponentType::GetTypeIndex() == m_ComponentType);
+	Append2(&component);
 }
 
 

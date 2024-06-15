@@ -21,7 +21,7 @@ class ResourceManager
 private:
 	static ResourceManager* s_Instance;
 	friend class ResourceManager;
-	friend class I_AssetPtr;
+	friend class et::I_AssetPtr;
 
 protected:
 	typedef std::function<I_Asset*(HashString const)> T_ReferenceAssetGetter;

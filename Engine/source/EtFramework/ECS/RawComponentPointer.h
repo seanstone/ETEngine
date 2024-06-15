@@ -24,7 +24,8 @@ struct RawComponentPtr final
 // create from 'real' components
 template<typename TComponentType>
 RawComponentPtr MakeRawComponent(TComponentType& comp) { return RawComponentPtr(TComponentType::GetTypeIndex(), &comp); }
-
+template<typename TComponentType>
+RawComponentPtr MakeRawComponent(TComponentType&& comp) { auto _comp = comp; return MakeRawComponent(_comp); }
 
 namespace detail {
 

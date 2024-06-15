@@ -32,7 +32,7 @@ private:
 	//
 	struct Listener
 	{
-		Listener(TFlagType const eventFlags, T_CallbackFn& func);
+		Listener(TFlagType const eventFlags, T_CallbackFn const& func);
 
 		TFlagType flags;
 		T_CallbackFn callback;
@@ -51,7 +51,7 @@ public:
 
 	// functionality
 	//---------------
-	T_CallbackId Register(TFlagType const flags, T_CallbackFn& callback);
+	T_CallbackId Register(TFlagType const flags, T_CallbackFn const& callback);
 	void Unregister(T_CallbackId& callbackId);
 
 	void Notify(TFlagType const eventType, TEventData const* const eventData);

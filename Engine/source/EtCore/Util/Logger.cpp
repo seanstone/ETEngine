@@ -1,9 +1,8 @@
 #include "stdafx.h"
 #include "Logger.h"
 
-#include <io.h>
-
 #ifdef ET_PLATFORM_WIN
+#include <io.h>
 #include "WindowsUtil.h"
 #endif
 
@@ -23,10 +22,12 @@ void Logger::Initialize()
 {
 	m_ConsoleLogger = new ConsoleLogger();
 #ifndef ET_SHIPPING
+#ifdef ET_PLATFORM_WIN
 	if (IsDebuggerPresent())
 	{
 		m_DebugLogger = new DebugLogger();
 	}
+#endif
 #endif
 	m_IsInitialized = true;
 }
@@ -77,6 +78,7 @@ void Logger::Log(const std::string& msg, LogLevel level, bool timestamp, ivec2 c
 #endif
 	if(genTimestamp)
 	{
+#ifdef ET_PLATFORM_WIN
 		SYSTEMTIME st;
 		GetSystemTime(&st);
 
@@ -87,6 +89,7 @@ void Logger::Log(const std::string& msg, LogLevel level, bool timestamp, ivec2 c
 		}
 
 		timestampStream << st.wHour << "." << st.wMinute << "." << st.wSecond << ":" << st.wMilliseconds << "]";
+#endif
 	}
 
 	switch (level)
@@ -210,9 +213,11 @@ Logger::ConsoleLogger::ConsoleLogger()
 
 	// Redirect the CRT standard input, output, and error handles to the console
 	FILE* pCout;
+#ifdef ET_PLATFORM_WIN
 	freopen_s(&pCout, "CONIN$", "r", stdin);
 	freopen_s(&pCout, "CONOUT$", "w", stdout);
 	freopen_s(&pCout, "CONOUT$", "w", stderr);
+#endif
 
 	//Clear the error state for each of the C++ standard stream objects. We need to do this, as
 	//attempts to access the standard streams before they refer to a valid target will cause the

@@ -349,6 +349,7 @@ function(dependancyLinks TARGET)
 	getRmlUiBuildDir(_rmluiBuild)
 
 	# separate debug and release libs
+	if (MSVC)
 	target_link_libraries (${TARGET} 		
 		debug ${_glfwBuild}/src/Debug/glfw3.lib						optimized ${_glfwBuild}/src/Debug/glfw3.lib
 
@@ -364,6 +365,7 @@ function(dependancyLinks TARGET)
 		debug ${_rmluiBuild}/Debug/RmlDebugger.lib
 
 		debug ${_vcpkgInstall}/debug/lib/zlibd.lib					optimized ${_vcpkgInstall}/lib/zlib.lib)
+	endif(MSVC)
 
 	if (MSVC)
 		target_link_libraries(${TARGET} opengl32.lib)
@@ -375,11 +377,13 @@ endfunction(dependancyLinks)
 ###################################
 function(cookerLinks TARGET)
 	
+if (MSVC)
 	set(_vcpkgInstall )
 	getVcpkgInstallDir(_vcpkgInstall)
 
 	target_link_libraries (${TARGET} 		
 		debug ${_vcpkgInstall}/debug/lib/freetyped.lib				optimized ${_vcpkgInstall}/lib/freetype.lib)
+endif()
 
 endfunction(cookerLinks)
 
@@ -388,6 +392,7 @@ endfunction(cookerLinks)
 ###################################
 function(editorLinks TARGET)
 
+if (MSVC)
 	set(_vcpkgInstall )
 	getVcpkgInstallDir(_vcpkgInstall)
 	
@@ -436,6 +441,7 @@ function(editorLinks TARGET)
 		debug ${_dbg}pangomm.lib			optimized ${_rel}pangomm.lib	 
 		debug ${_dbg}pangowin32-1.0.lib		optimized ${_rel}pangowin32-1.0.lib	 
 		debug ${_dbg}sigc-2.0.lib			optimized ${_rel}sigc-2.0.lib	 )
+endif()
 
 endfunction(editorLinks)
 
@@ -473,6 +479,14 @@ function(libIncludeDirs)
 	include_directories("${ENGINE_DIRECTORY_ABS}/third_party/openal/openal-soft/include")
 	include_directories("${ENGINE_DIRECTORY_ABS}/third_party/glfw/glfw/include")
 	include_directories("${ENGINE_DIRECTORY_ABS}/third_party/rmlui/RmlUi/Include")
+
+	find_package(Freetype REQUIRED)
+	include_directories(${FREETYPE_INCLUDE_DIRS})
+
+	find_package(PkgConfig)
+
+	pkg_check_modules(GTKMM gtkmm-3.0)
+	include_directories(${GTKMM_INCLUDE_DIRS})
 
 endfunction(libIncludeDirs)
 

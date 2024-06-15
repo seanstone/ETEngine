@@ -17,10 +17,10 @@ class I_RenderArea
 public:
 	virtual ~I_RenderArea() = default;
 
-	virtual void SetOnInit(std::function<void(I_GraphicsContextApi* const)>& callback) = 0;
-	virtual void SetOnDeinit(std::function<void()>& callback) = 0;
-	virtual void SetOnResize(std::function<void(vec2 const)>& callback) = 0;
-	virtual void SetOnRender(std::function<void(T_FbLoc const)>& callback) = 0;
+	virtual void SetOnInit(std::function<void(I_GraphicsContextApi* const)> const& callback) = 0;
+	virtual void SetOnDeinit(std::function<void()> const& callback) = 0;
+	virtual void SetOnResize(std::function<void(vec2 const)> const& callback) = 0;
+	virtual void SetOnRender(std::function<void(T_FbLoc const)> const& callback) = 0;
 
 	virtual void QueueDraw() = 0;
 	virtual bool MakeCurrent() = 0;

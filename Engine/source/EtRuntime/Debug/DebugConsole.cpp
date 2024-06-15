@@ -251,7 +251,7 @@ int32 DebugConsole::TextCallback(ImGuiInputTextCallbackData* const callbackData)
 
 		if (candidates.empty())
 		{
-			m_LogLines.emplace_back(FS("No match for %s", currentWord), vec4(1.f, 1.f, 0.5f, 1.f));
+			m_LogLines.emplace_back(FS("No match for %s", currentWord.c_str()), vec4(1.f, 1.f, 0.5f, 1.f));
 		}
 		else if (candidates.size() == 1u)
 		{

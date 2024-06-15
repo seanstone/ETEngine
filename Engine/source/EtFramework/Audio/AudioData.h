@@ -1,5 +1,9 @@
 #pragma once
-#include <AL\al.h>
+#ifdef ET_PLATFORM_WIN
+#include <AL/al.h>
+#else
+#include <OpenAL/al.h>
+#endif
 #include <rttr/type>
 
 #include <EtCore/Content/Asset.h>

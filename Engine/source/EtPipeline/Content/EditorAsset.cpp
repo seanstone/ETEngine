@@ -270,7 +270,7 @@ void EditorAssetBase::Generate(BuildConfiguration const& buildConfig, core::Dire
 
 	if (!success)
 	{
-		ET_ASSERT(false, "Failed to generate runtime data for asset '%s'", asset->GetName());
+		ET_ASSERT(false, "Failed to generate runtime data for asset '%s'", asset->GetName().c_str());
 		return;
 	}
 
@@ -288,7 +288,7 @@ void EditorAssetBase::Generate(BuildConfiguration const& buildConfig, core::Dire
 
 			if (!assetFile->Open(core::FILE_ACCESS_MODE::Write, outFlags))
 			{
-				ET_ASSERT(false, "Failed to open generated asset file for writing at '%s'", assetFile->GetName());
+				ET_ASSERT(false, "Failed to open generated asset file for writing at '%s'", assetFile->GetName().c_str());
 				continue;
 			}
 

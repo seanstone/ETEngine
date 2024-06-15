@@ -152,7 +152,8 @@ void ResourceView::ResourceGroupToggled()
 //
 void ResourceView::OnDirectorySelectionChanged()
 {
-	Gtk::TreeModel::iterator const& it = m_TreeSelection->get_selected(Glib::RefPtr<Gtk::TreeModel>::cast_static(m_TreeModel));
+	auto m = Glib::RefPtr<Gtk::TreeModel>::cast_static(m_TreeModel);
+	Gtk::TreeModel::iterator const& it = m_TreeSelection->get_selected(m);
 	if (it != m_TreeModel->children().end())
 	{
 		core::Directory* const dir = (*it)[m_Columns.m_Directory];

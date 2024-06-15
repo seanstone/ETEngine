@@ -43,7 +43,7 @@ setupConfigurations()
 
 message(STATUS "Creating Project ...")
 project (EtEngineDemo C CXX) # C++
-set(CMAKE_CXX_STANDARD 14)  # C++ 14
+set(CMAKE_CXX_STANDARD 17)  # C++ 17
 
 # run the engine CMake script and then the project
 ###################################################

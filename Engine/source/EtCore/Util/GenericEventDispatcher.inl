@@ -17,7 +17,7 @@ namespace core {
 // Register a listener to all events matching the flags
 //
 template <typename TFlagType, class TEventData>
-GenericEventDispatcher<TFlagType, TEventData>::Listener::Listener(TFlagType const eventFlags, T_CallbackFn& func)
+GenericEventDispatcher<TFlagType, TEventData>::Listener::Listener(TFlagType const eventFlags, T_CallbackFn const& func)
 	: flags(eventFlags)
 {
 	callback = func;
@@ -36,7 +36,7 @@ GenericEventDispatcher<TFlagType, TEventData>::Listener::Listener(TFlagType cons
 //
 template <typename TFlagType, class TEventData>
 typename GenericEventDispatcher<TFlagType, TEventData>::T_CallbackId GenericEventDispatcher<TFlagType, TEventData>::Register(TFlagType const flags, 
-	T_CallbackFn& callback)
+	T_CallbackFn const& callback)
 {
 	return m_Listeners.insert(Listener(flags, callback)).second;
 }

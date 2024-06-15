@@ -4,6 +4,9 @@
 namespace et {
 namespace fw {
 
+// Forward declaration
+template<typename TViewType>
+ComponentSignature SignatureFromView();
 
 //=============
 // System Base
@@ -95,7 +98,8 @@ ComponentSignature fw::System<TSystemType, TViewType>::GetSignature() const
 template <class TSystemType, typename TViewType>
 void System<TSystemType, TViewType>::RootProcess(EcsController* const control, Archetype* const archetype, size_t const offset, size_t const count) 
 {
-	Process(ComponentRange<TViewType>(control, archetype, offset, count));
+	auto range = ComponentRange<TViewType>(control, archetype, offset, count);
+	Process(range);
 }
 	
 

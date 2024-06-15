@@ -37,7 +37,7 @@ public:
 	//---------
 private:
 	bool DeserializeRoot(rttr::variant& var, rttr::type const callingType, JSON::Object const* const parentObj);
-	bool DeserializeRoot(rttr::instance& inst, TypeInfo const& ti, JSON::Object const* const parentObj);
+	bool DeserializeRoot(rttr::instance const& inst, TypeInfo const& ti, JSON::Object const* const parentObj);
 
 	// general
 	bool ReadVariant(rttr::variant& var, rttr::type const callingType, JSON::Value const* const jVal);
@@ -53,7 +53,7 @@ private:
 	bool ReadSequentialContainer(rttr::variant& var, JSON::Value const* const jVal);
 	bool ReadAssociativeContainer(rttr::variant& var, JSON::Value const* const jVal);
 	bool ReadObject(rttr::variant& var, TypeInfo const& ti, JSON::Value const* const jVal);
-	bool ReadObjectProperties(rttr::instance& inst, TypeInfo const& ti, JSON::Object const* const jObj);
+	bool ReadObjectProperties(rttr::instance const& inst, TypeInfo const& ti, JSON::Object const* const jObj);
 };
 
 

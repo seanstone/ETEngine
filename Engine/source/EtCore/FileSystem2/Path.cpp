@@ -106,7 +106,7 @@ Path::Path(std::string const& inPath)
 		m_Components.emplace_back(static_cast<uint16>(readPos++), 1u, m_Impl);
 	}
 #ifdef ET_PLATFORM_LINUX
-	else if (inPath(readPos) == '~')
+	else if (inPath[readPos] == '~')
 	{
 		m_Type = E_Type::Absolute;
 

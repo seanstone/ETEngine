@@ -141,7 +141,7 @@ void PostProcessingRenderer::EnableInput()
 	ContextHolder::GetRenderContext()->BindFramebuffer(m_CollectFBO);
 }
 
-void PostProcessingRenderer::Draw(T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(T_FbLoc const)>& onDrawOverlaysFn)
+void PostProcessingRenderer::Draw(T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(T_FbLoc const)> const& onDrawOverlaysFn)
 {
 	I_GraphicsContextApi* const api = ContextHolder::GetRenderContext();
 

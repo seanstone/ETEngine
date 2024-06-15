@@ -402,7 +402,7 @@ void Scene::RemoveAtmosphere(core::T_SlotId const atmoId)
 //
 // Takes ownership
 //
-void Scene::AddExtension(UniquePtr<I_SceneExtension>& ext)
+void Scene::AddExtension(UniquePtr<I_SceneExtension>&& ext)
 {
 	ET_ASSERT(GetExtension(ext->GetId()) == nullptr, "Extension was already added!");
 

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#ifdef ET_PLATFORM_WIN
 #include "WindowsUtil.h"
 
 #include <iostream>
@@ -81,3 +82,5 @@ void GetExecutablePathName(std::string& outPath)
 
 } // namespace core
 } // namespace et
+
+#endif // ET_PLATFORM_WIN
