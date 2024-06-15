@@ -7,7 +7,7 @@
 <img style="padding-right:5px;" align="right" src="https://img.shields.io/github/v/tag/illation/etengine?include_prereleases&label=version&sort=semver"/>
 <a href="https://discord.gg/PZc37qPwVC"><img align="right" alt="Discord" src="https://img.shields.io/discord/809026517249294366"></a>
 
-#### Realtime 3D Graphics/Simulation/Game-Engine written in C++ 14.
+#### Realtime 3D Graphics/Simulation/Game-Engine written in C++ 17.
 
 ***********************************************************************************
 

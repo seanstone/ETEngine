@@ -3,6 +3,7 @@
 
 #include "ViewportRenderer.h"
 #include "RenderArea.h"
+#include "RenderDeviceInterface.h"
 
 
 namespace et {

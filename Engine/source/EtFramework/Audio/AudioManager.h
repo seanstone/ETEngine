@@ -1,9 +1,13 @@
 #pragma once
 #include <EtCore/Util/Singleton.h>
 
+#ifdef ET_PLATFORM_WIN
 #include <AL/al.h>
 #include <AL/alc.h>
-
+#else
+#include <OpenAL/al.h>
+#include <OpenAL/alc.h>
+#endif
 
 namespace et {
 namespace fw {

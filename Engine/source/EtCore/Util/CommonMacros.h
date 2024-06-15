@@ -33,7 +33,7 @@
 #	ifdef ET_PLATFORM_WIN
 #		define ET_BREAK()	if (et::core::platform::IsDebuggerAttached()) __debugbreak()		
 #	else
-#		message ("missing implementation for debug break")
+#		//message ("missing implementation for debug break")
 #		define ET_BREAK()
 #	endif
 #endif	

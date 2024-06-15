@@ -554,6 +554,7 @@ function(dependancyLinks TARGET)
 	getRmlUiBuildDir(_rmluiBuild)
 
 	# separate debug and release libs
+	if(MSVC)
 	target_link_libraries (${TARGET} 		
 		debug ${_glfwBuild}/src/Debug/glfw3.lib						optimized ${_glfwBuild}/src/Debug/glfw3.lib
 
@@ -564,6 +565,7 @@ function(dependancyLinks TARGET)
 		debug ${_rmluiBuild}/Debug/RmlDebugger.lib
 
 		debug ${_vcpkgInstall}/debug/lib/zlibd.lib					optimized ${_vcpkgInstall}/lib/zlib.lib)
+	endif()
 
 	if (MSVC)
 		target_link_libraries(${TARGET} opengl32.lib)
@@ -575,12 +577,14 @@ endfunction(dependancyLinks)
 # link to all cooker dependencies
 ###################################
 function(cookerLinks TARGET)
-	
+
+if(MSVC)
 	set(_vcpkgInstall )
 	getVcpkgInstallDir(_vcpkgInstall)
 
 	target_link_libraries (${TARGET} 		
 		debug ${_vcpkgInstall}/debug/lib/freetyped.lib				optimized ${_vcpkgInstall}/lib/freetype.lib)
+endif()
 
 endfunction(cookerLinks)
 
@@ -675,6 +679,9 @@ function(libIncludeDirs)
 	include_directories("${ENGINE_DIRECTORY_ABS}/third_party/glfw/glfw/include")
 	include_directories("${ENGINE_DIRECTORY_ABS}/third_party/rmlui/RmlUi/Include")
 	include_directories("${ENGINE_DIRECTORY_ABS}/third_party/lunasvg/lunasvg/include")
+
+	find_package(Freetype REQUIRED)
+	include_directories(${FREETYPE_INCLUDE_DIRS})
 
 endfunction(libIncludeDirs)
 

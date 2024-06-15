@@ -9,10 +9,13 @@
 
 
 namespace et {
+
+namespace rhi {
+	class ShaderData;
+}
+
 namespace render {
 
-
-class rhi::ShaderData;
 class I_Material;
 
 

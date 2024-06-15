@@ -4,11 +4,15 @@
 
 
 namespace et {
+
+namespace rhi {
+	class TextureData;
+}
+
 namespace render {
 
 
 class Camera;
-class rhi::TextureData;
 class Gbuffer;
 
 

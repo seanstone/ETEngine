@@ -12,7 +12,9 @@ namespace Gtk {
 	class Frame;
 }
 
-class Gio::File;
+namespace Gio {
+	class File;
+}
 
 
 namespace et {

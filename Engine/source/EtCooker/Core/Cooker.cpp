@@ -299,7 +299,7 @@ void Cooker::CookFilePackages()
 		outFlags.SetFlags(core::FILE_ACCESS_FLAGS::FLAGS::Create | core::FILE_ACCESS_FLAGS::FLAGS::Exists);
 		if (!outFile->Open(core::FILE_ACCESS_MODE::Write, outFlags))
 		{
-			ET_LOG_E(ET_CTX_COOKER, "CookFilePackages > Failed to open file '%s'", outFile->GetName());
+			ET_LOG_E(ET_CTX_COOKER, "CookFilePackages > Failed to open file '%s'", outFile->GetName().c_str());
 			m_ReturnCode = E_ReturnCode::FailedToWritePackage;
 			continue;
 		}

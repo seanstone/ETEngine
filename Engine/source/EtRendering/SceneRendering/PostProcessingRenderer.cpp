@@ -143,7 +143,7 @@ void PostProcessingRenderer::EnableInput()
 	rhi::ContextHolder::GetRenderDevice()->BindFramebuffer(m_CollectFBO);
 }
 
-void PostProcessingRenderer::Draw(rhi::T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(rhi::T_FbLoc const)>& onDrawOverlaysFn)
+void PostProcessingRenderer::Draw(rhi::T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(rhi::T_FbLoc const)> const& onDrawOverlaysFn)
 {
 	rhi::I_RenderDevice* const device = rhi::ContextHolder::GetRenderDevice();
 

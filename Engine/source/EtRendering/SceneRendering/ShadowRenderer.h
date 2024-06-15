@@ -5,11 +5,15 @@
 
 
 namespace et {
+
+namespace rhi {
+	class ShaderData;
+}
+
 namespace render {
 
 
 // forward
-class rhi::ShaderData;
 class DirectionalShadowData;
 
 

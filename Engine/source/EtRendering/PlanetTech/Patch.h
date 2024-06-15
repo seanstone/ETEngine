@@ -25,7 +25,7 @@ struct PatchVertex
 
 struct PatchInstance
 {
-	PatchInstance(BYTE Level, vec3 A, vec3 R, vec3 S)
+	PatchInstance(int8 Level, vec3 A, vec3 R, vec3 S)
 	{
 		level = Level;
 		a = A;

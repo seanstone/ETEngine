@@ -1,10 +1,6 @@
 #pragma once
 #include <EtCore/IO/Uri.h>
-
-
-namespace et { namespace core {
-	class BinaryReader;
-}  }
+#include <EtCore/IO/BinaryReader.h>
 
 
 namespace et {
@@ -370,7 +366,7 @@ struct Dom
 
 struct Header
 {
-	uint32 magic = *reinterpret_cast<uint32*>("glTF");	// should be "glTF"
+	uint32 magic = *reinterpret_cast<const uint32*>("glTF");	// should be "glTF"
 	uint32 version = 2; // should be 2
 	uint32 length = 0;
 };

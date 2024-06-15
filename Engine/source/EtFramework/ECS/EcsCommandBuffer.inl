@@ -48,6 +48,13 @@ void EcsCommandBuffer::AddComponents(T_EntityId const entity, TComponentType& co
 	detail::AddToBuffer(*this, entity, list, component1, args...);
 }
 
+template<typename TComponentType, typename... Args>
+void EcsCommandBuffer::AddComponents(T_EntityId const entity, TComponentType&& component1, Args... args)
+{
+	auto comp = component1;
+	AddComponents(entity, comp, args...);
+}
+
 //------------------------------------
 // EcsCommandBuffer::RemoveComponents
 //

@@ -33,9 +33,9 @@ public:
 
 	// functionality
 	//---------------
-	template<typename TComponentType, typename std::enable_if_t<!std::is_pointer<TComponentType>::value>* = 0>
+	template<typename TComponentType>
 	void Append(TComponentType const& component); // add to back
-	void Append(void const* const componentData);
+	void Append2(void const* const componentData);
 
 	void Erase(size_t const idx); // swap with last element and pop_back
 	void Clear();

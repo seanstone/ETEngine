@@ -113,7 +113,7 @@ bool FileResourceManager::GetLoadData(core::I_Asset const* const asset, std::vec
 	core::File* const dbFile = static_cast<core::File*>(dbEntry);
 	if (!(dbFile->Open(core::FILE_ACCESS_MODE::Read)))
 	{
-		ET_LOG_W(ET_CTX_PIPELINE, "Failed to open file '%s'", dbFile->GetName());
+		ET_LOG_W(ET_CTX_PIPELINE, "Failed to open file '%s'", dbFile->GetName().c_str());
 		return false;
 	}
 

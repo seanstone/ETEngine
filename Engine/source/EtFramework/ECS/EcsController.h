@@ -75,12 +75,18 @@ public:
 	template<typename TComponentType, typename... Args>
 	T_EntityId AddEntity(TComponentType& component1, Args... args);
 	template<typename TComponentType, typename... Args>
+	T_EntityId AddEntity(TComponentType&& component1, Args... args);
+	template<typename TComponentType, typename... Args>
 	T_EntityId AddEntityChild(T_EntityId const parent, TComponentType& component1, Args... args);
+	template<typename TComponentType, typename... Args>
+	T_EntityId AddEntityChild(T_EntityId const parent, TComponentType&& component1, Args... args);
 
 	T_EntityId DuplicateEntityAddComponents(T_EntityId const dupe, std::vector<RawComponentPtr> const& components);
 
 	template<typename TComponentType, typename... Args>
 	T_EntityId DuplicateEntity(T_EntityId const dupe, TComponentType& component1, Args... args);
+	template<typename TComponentType, typename... Args>
+	T_EntityId DuplicateEntity(T_EntityId const dupe, TComponentType&& component1, Args... args);
 
 	void ReparentEntity(T_EntityId const entity, T_EntityId const newParent);
 
@@ -90,6 +96,8 @@ public:
 	// components
 	template<typename TComponentType, typename... Args>
 	void AddComponents(T_EntityId const entity, TComponentType& component1, Args... args);
+	template<typename TComponentType, typename... Args>
+	void AddComponents(T_EntityId const entity, TComponentType&& component1, Args... args);
 	void AddComponents(T_EntityId const entity, std::vector<RawComponentPtr>& components);
 
 	template<typename TComponentType, typename... Args>
@@ -98,15 +106,15 @@ public:
 
 	// component events
 	template<typename TComponentType>
-	T_CompEventId RegisterOnComponentAdded(T_CompEventFn<TComponentType>& fn);
+	T_CompEventId RegisterOnComponentAdded(T_CompEventFn<TComponentType> const& fn);
 	template<typename TComponentType>
-	T_CompEventId RegisterOnComponentRemoved(T_CompEventFn<TComponentType>& fn);
+	T_CompEventId RegisterOnComponentRemoved(T_CompEventFn<TComponentType> const& fn);
 	template<typename TComponentType>
 	void UnregisterComponentEvent(T_CompEventId& callbackId);
 
 	// entity events
-	T_EntityEventId RegisterOnEntityAdded(T_EntityEventFn& fn);
-	T_EntityEventId RegisterOnEntityRemoved(T_EntityEventFn& fn);
+	T_EntityEventId RegisterOnEntityAdded(T_EntityEventFn const& fn);
+	T_EntityEventId RegisterOnEntityRemoved(T_EntityEventFn const& fn);
 	void UnregisterEntityEvent(T_EntityEventId& callbackId);
 
 	// systems

@@ -65,6 +65,8 @@ public:
 	//--------------------------
 	template<typename TComponentType, typename... Args>
 	void AddComponents(T_EntityId const entity, TComponentType& component1, Args... args);
+	template<typename TComponentType, typename... Args>
+	void AddComponents(T_EntityId const entity, TComponentType&& component1, Args... args);
 	void AddComponentList(T_EntityId const entity, std::vector<RawComponentPtr> const& components);
 
 	template<typename TComponentType, typename... Args>

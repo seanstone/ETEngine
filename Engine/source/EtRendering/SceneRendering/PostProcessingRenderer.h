@@ -6,11 +6,15 @@
 
 
 namespace et {
+
+namespace rhi {
+	class ShaderData;
+	class TextureData;
+}
+
 namespace render {
 
 
-class rhi::ShaderData;
-class rhi::TextureData;
 class I_OverlayRenderer;
 
 
@@ -25,7 +29,7 @@ public:
 	void Initialize();
 
 	void EnableInput();
-	void Draw(rhi::T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(rhi::T_FbLoc const)>& onDrawOverlaysFn);
+	void Draw(rhi::T_FbLoc const FBO, PostProcessingSettings const& settings, std::function<void(rhi::T_FbLoc const)> const& onDrawOverlaysFn);
 
 	rhi::T_FbLoc GetTargetFBO() { return m_CollectFBO; }
 	rhi::TextureData* GetTargetTexture() { return m_CollectTex; }

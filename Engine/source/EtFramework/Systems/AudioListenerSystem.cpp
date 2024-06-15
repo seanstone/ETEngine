@@ -33,7 +33,7 @@ AudioListenerSystem::AudioListenerSystem()
 //
 // Update active audio listener properties
 //
-void AudioListenerSystem::Process(ComponentRange<AudioListenerSystemView>& range) 
+void AudioListenerSystem::Process(ComponentRange<AudioListenerSystemView>& range)
 {
 #ifndef ET_SHIPPING
 	uint32 count = 0u;

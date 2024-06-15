@@ -88,7 +88,7 @@ public:
 	void UpdateAtmosphereLight(core::T_SlotId const atmoId, T_LightId const lightId);
 	void RemoveAtmosphere(core::T_SlotId const atmoId);
 
-	void AddExtension(UniquePtr<I_SceneExtension>& ext);
+	void AddExtension(UniquePtr<I_SceneExtension>&& ext);
 	void ClearExtensions();
 
 	// accessors

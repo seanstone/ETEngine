@@ -1,5 +1,7 @@
 #pragma once
+#ifdef ET_PLATFORM_WIN
 #include <io.h>
+#endif
 
 #include "TraceFwd.h"
 #include "TraceEvents.h"
@@ -76,7 +78,7 @@ public:
 	void RemoveHandler();
 
 	// listeners
-	T_TraceCallbackId RegisterListener(T_TraceLevel const flags, T_TraceCallbackFn& callback);
+	T_TraceCallbackId RegisterListener(T_TraceLevel const flags, T_TraceCallbackFn const& callback);
 	void UnregisterListener(T_TraceCallbackId& callbackId);
 
 	// utility

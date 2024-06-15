@@ -26,9 +26,12 @@ std::string string_format(char const* format = nullptr, Args ... args)
 		return std::string();
 	}
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wformat-security"
 	size_t size = snprintf(nullptr, 0, format, args ...) + 1; // Extra space for '\0'
 	std::unique_ptr<char[]> buf(new char[size]);
 	snprintf(buf.get(), size, format, args ...);
+#pragma clang diagnostic pop
 	return std::string(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
 }
 

@@ -11,11 +11,13 @@ namespace et {
 
 
 namespace et {
+
+namespace rhi {
+	class ShaderData;
+	class TextureData;
+}
+
 namespace render {
-
-
-class rhi::ShaderData;
-class rhi::TextureData;
 
 
 //---------------------------------

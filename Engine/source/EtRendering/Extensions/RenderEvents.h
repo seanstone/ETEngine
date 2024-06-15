@@ -3,10 +3,12 @@
 
 
 namespace et {
+
+namespace rhi {
+	class I_ViewportRenderer;
+}
+
 namespace render {
-
-
-class rhi::I_ViewportRenderer;
 	
 
 //---------------------------

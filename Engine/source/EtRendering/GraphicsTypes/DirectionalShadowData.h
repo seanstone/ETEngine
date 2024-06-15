@@ -1,11 +1,12 @@
 #pragma once
 
 namespace et {
+
+namespace rhi {
+	class TextureData;
+}
+
 namespace render {
-
-
-// forward
-class rhi::TextureData;
 
 
 //---------------------------------

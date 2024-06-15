@@ -85,10 +85,10 @@ public:
 	void ToggleMinimized();
 	void ToggleMaximized();
 
-	T_EventCallbackId RegisterCallback(T_EventFlags const flags, T_EventCallback& callback);
+	T_EventCallbackId RegisterCallback(T_EventFlags const flags, T_EventCallback const& callback);
 	void UnregisterCallback(T_EventCallbackId& callbackId);
 
-	void SetHandleHitTestFn(T_WindowHandleHitTestFn& fn);
+	void SetHandleHitTestFn(T_WindowHandleHitTestFn const& fn);
 
 	void SetCustomBorderSize(int32 const size);
 

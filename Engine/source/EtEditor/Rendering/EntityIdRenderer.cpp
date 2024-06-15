@@ -103,7 +103,7 @@ void EntityIdRenderer::DestroyRenderTarget()
 // Picks an entity by drawing each entity visible to the scene renderer with a color calculated from its ID, 
 //  - then converting the color under the specified pixel back to the IT and finding the appropriate entity
 //
-void EntityIdRenderer::Pick(ivec2 const pixel, rhi::Viewport* const viewport, std::function<void(fw::T_EntityId const)>& onEntityPicked)
+void EntityIdRenderer::Pick(ivec2 const pixel, rhi::Viewport* const viewport, std::function<void(fw::T_EntityId const)> const& onEntityPicked)
 {
 	if (m_ViewportToPickFrom == nullptr)
 	{

@@ -154,7 +154,7 @@ WeakPtr<TDataType>& WeakPtr<TDataType>::operator=(WeakPtr<TOtherType>&& moving)
 	// copy data. moved refcount stays intact
 	TDataType* tempPtr = moving.m_Ptr;
 	std::swap(m_Ptr, tempPtr);
-	m_RefCount = copy.m_RefCount;
+	m_RefCount = moving.m_RefCount;
 
 	// invalidate old pointer
 	moving.m_Ptr = nullptr;

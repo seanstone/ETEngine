@@ -45,7 +45,7 @@ private:
 	// Functionality
 	//---------------
 public:
-	void Pick(ivec2 const pixel, rhi::Viewport* const viewport, std::function<void(fw::T_EntityId const)>& onEntityPicked);
+	void Pick(ivec2 const pixel, rhi::Viewport* const viewport, std::function<void(fw::T_EntityId const)> const& onEntityPicked);
 
 	// Utility
 	//---------

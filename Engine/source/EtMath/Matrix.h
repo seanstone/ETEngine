@@ -90,7 +90,7 @@ matrix<m, n, T> operator*( const matrix<m, n, T>& lhs, const T rhs );
 //operations
 //**********
 
-template <unsigned int m, unsigned int n, class T>
+template <uint8 m, uint8 n, class T>
 matrix<m, n, T> transpose(const matrix<m, n, T>& mat);
 
 //special cases
@@ -116,10 +116,10 @@ template <class T>
 matrix<4, 4, T> inverse(const matrix<4, 4, T>& mat);
 
 //access to array for the graphics api
-template<unsigned int m, unsigned int n, typename T>
+template<uint8 m, uint8 n, typename T>
 T const* valuePtr( matrix<m, n, T> const& mat );
 
-template<unsigned int m, unsigned int n, typename T>
+template<uint8 m, uint8 n, typename T>
 T* valuePtr( matrix<m, n, T>& mat );
 
 

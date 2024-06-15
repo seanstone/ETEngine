@@ -77,6 +77,7 @@ void TraceService::Trace(T_TraceContext const context, E_TraceLevel const level,
 	if (timestamp)
 	{
 		std::stringstream timestampStream;
+#ifdef ET_PLATFORM_WIN
 		SYSTEMTIME st;
 		GetSystemTime(&st);
 
@@ -87,6 +88,7 @@ void TraceService::Trace(T_TraceContext const context, E_TraceLevel const level,
 		}
 
 		timestampStream << st.wHour << "." << st.wMinute << "." << st.wSecond << ":" << st.wMilliseconds << "]";
+#endif
 
 		timestampStr += timestampStream.str();
 	}
@@ -165,7 +167,7 @@ void TraceService::SetupDefaultHandlers(std::string const& traceClientName, bool
 //--------------------------------
 // TraceService::RegisterListener
 //
-T_TraceCallbackId TraceService::RegisterListener(T_TraceLevel const flags, T_TraceCallbackFn& callback)
+T_TraceCallbackId TraceService::RegisterListener(T_TraceLevel const flags, T_TraceCallbackFn const& callback)
 {
 	return m_EventDispatcher.Register(flags, callback);
 }

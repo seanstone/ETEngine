@@ -54,7 +54,7 @@ EditorCameraSystem::EditorCameraSystem()
 //
 // Update a cameras position according to input
 //
-void EditorCameraSystem::Process(fw::ComponentRange<EditorCameraSystemView>& range) 
+void EditorCameraSystem::Process(fw::ComponentRange<EditorCameraSystemView>& range)
 {
 	// common variables
 	core::InputManager* const input = core::InputManager::GetInstance();

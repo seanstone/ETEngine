@@ -383,7 +383,7 @@ Directory* Directory::CreateSubdirectory(std::string& path)
 	Entry* const childEntry = *childIt;
 	if (childEntry->GetType() == Entry::EntryType::ENTRY_FILE)
 	{
-		ET_WARNING("subdirectory path (%s) contains a file entry (%s)", (GetName() + path).c_str(), childEntry->GetName());
+		ET_WARNING("subdirectory path (%s) contains a file entry (%s)", (GetName() + path).c_str(), childEntry->GetName().c_str());
 		return nullptr;
 	}
 

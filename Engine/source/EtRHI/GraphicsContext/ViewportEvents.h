@@ -1,6 +1,6 @@
 #pragma once
 #include <EtCore/Util/GenericEventDispatcher.h>
-
+#include "GraphicsTypes.h"
 
 namespace et {
 namespace rhi {

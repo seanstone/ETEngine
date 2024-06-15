@@ -187,7 +187,7 @@ void GuiWindow::ToggleMaximized()
 //-----------------------------
 // GuiWindow::RegisterCallback
 //
-GuiWindow::T_EventCallbackId GuiWindow::RegisterCallback(T_EventFlags const flags, T_EventCallback& callback)
+GuiWindow::T_EventCallbackId GuiWindow::RegisterCallback(T_EventFlags const flags, T_EventCallback const& callback)
 {
 	return m_EventDispatcher.Register(flags, callback);
 }
@@ -203,7 +203,7 @@ void GuiWindow::UnregisterCallback(T_EventCallbackId& callbackId)
 //-------------------------------
 // GuiWindow::SetHandleHitTestFn
 //
-void GuiWindow::SetHandleHitTestFn(T_WindowHandleHitTestFn& fn)
+void GuiWindow::SetHandleHitTestFn(T_WindowHandleHitTestFn const& fn)
 {
 	ET_ASSERT(!fn || !m_HitTestFn);
 	m_HitTestFn = fn;

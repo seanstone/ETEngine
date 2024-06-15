@@ -32,3 +32,4 @@ libIncludeDirs()
 
 # general include dirs
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/..")
+target_include_directories(EtRuntime PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")

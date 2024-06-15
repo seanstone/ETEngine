@@ -45,10 +45,10 @@ public:
 	// Render Area Interface
 	//-----------------------
 protected:
-	void SetOnInit(std::function<void(Ptr<rhi::I_RenderDevice> const)>& callback) override { m_OnInit = callback; }
-	void SetOnDeinit(std::function<void()>& callback) override { m_OnDeinit = callback; }
-	void SetOnResize(std::function<void(vec2 const)>& callback) override { m_OnResize = callback; }
-	void SetOnRender(std::function<void(rhi::T_FbLoc const)>& callback) override { m_OnRender = callback; }
+	void SetOnInit(std::function<void(Ptr<rhi::I_RenderDevice> const)> const& callback) override { m_OnInit = callback; }
+	void SetOnDeinit(std::function<void()> const& callback) override { m_OnDeinit = callback; }
+	void SetOnResize(std::function<void(vec2 const)> const& callback) override { m_OnResize = callback; }
+	void SetOnRender(std::function<void(rhi::T_FbLoc const)> const& callback) override { m_OnRender = callback; }
 
 	void QueueDraw() override;
 	bool MakeCurrent() override;

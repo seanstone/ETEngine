@@ -2,6 +2,7 @@
 #include "ComponentRegistry.h"
 #include "ComponentRange.h"
 #include "ComponentSignature.h"
+#include "EcsController.h"
 
 
 namespace et {

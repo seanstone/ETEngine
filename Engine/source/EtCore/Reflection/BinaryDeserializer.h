@@ -29,7 +29,7 @@ public:
 	//---------
 private:
 	bool DeserializeRoot(rttr::variant& var, rttr::type const callingType, std::vector<uint8> const& data);
-	bool DeserializeRoot(rttr::instance& inst, TypeInfo const& ti, std::vector<uint8> const& data);
+	bool DeserializeRoot(rttr::instance const& inst, TypeInfo const& ti, std::vector<uint8> const& data);
 	bool InitFromHeader(std::vector<uint8> const& data, rttr::type const callingType);
 
 	// general
@@ -45,7 +45,7 @@ private:
 	bool ReadSequentialContainer(rttr::variant& var);
 	bool ReadAssociativeContainer(rttr::variant& var);
 	bool ReadObject(rttr::variant& var, TypeInfo const& ti);
-	bool ReadObjectProperties(rttr::instance& inst, TypeInfo const& ti, uint16 const propCount);
+	bool ReadObjectProperties(rttr::instance const& inst, TypeInfo const& ti, uint16 const propCount);
 
 
 	// Data

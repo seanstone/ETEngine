@@ -5,10 +5,13 @@
 
 
 namespace et {
+
+namespace rhi {
+	class ShaderData;
+	class TextureData;
+}
+
 namespace render {
-
-
-class rhi::TextureData;
 
 
 class FrameBuffer

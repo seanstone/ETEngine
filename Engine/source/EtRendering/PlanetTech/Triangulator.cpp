@@ -173,7 +173,7 @@ void Triangulator::RecursiveTriangle(vec3 a, vec3 b, vec3 c, int16 level, bool f
 	}
 	else //put the triangle in the buffer
 	{
-		m_Positions.push_back(PatchInstance((BYTE)level, a, b-a, c-a));
+		m_Positions.push_back(PatchInstance((int8)level, a, b-a, c-a));
 	}
 }
 

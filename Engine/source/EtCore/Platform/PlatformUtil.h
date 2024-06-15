@@ -1,6 +1,7 @@
 #pragma once
+#ifdef ET_PLATFORM_WIN
 #include <wtypes.h>
-
+#endif
 
 namespace et {
 namespace core {

@@ -71,6 +71,7 @@ namespace et { namespace detail {
 #		define ET_PROCESS_ASSERT_IMPL(condition, ...) et::detail::ProcessAssert(condition, __PRETTY_FUNCTION__, FS(__VA_ARGS__))
 #	endif // ET_PLATFORM_WIN														
 
+#	ifdef ET_PLATFORM_WIN
 #	define ET_ASSERT_IMPL(condition, ...)\
 	__pragma(warning(push))\
 	__pragma(warning(disable: 4127))\
@@ -80,6 +81,14 @@ namespace et { namespace detail {
 	}\
 	while (false)\
 	__pragma(warning(pop))
+#	else
+#	define ET_ASSERT_IMPL(condition, ...)\
+	do\
+	{\
+		if (ET_PROCESS_ASSERT_IMPL(condition, __VA_ARGS__)) ET_ASSERT_HANDLER_DEFAULT();\
+	}\
+	while (false)
+#	endif // ET_PLATFORM_WIN	
 
 
 #	ifdef ET_PLATFORM_WIN
@@ -88,6 +97,7 @@ namespace et { namespace detail {
 #		define ET_PROCESS_REPORT_IMPL(level, ...) et::detail::ProcessReport(level, __PRETTY_FUNCTION__, FS(__VA_ARGS__))
 #	endif // ET_PLATFORM_WIN		
 
+#	ifdef ET_PLATFORM_WIN
 #	define ET_REPORT_IMPL(level, ...)\
 	__pragma(warning(push))\
 	__pragma(warning(disable: 4127))\
@@ -99,6 +109,16 @@ namespace et { namespace detail {
 	}\
 	while (false)\
 	__pragma(warning(pop))
+#else
+#	define ET_REPORT_IMPL(level, ...)\
+	do\
+	{\
+		ET_PROCESS_REPORT_IMPL(level, __VA_ARGS__);\
+		ET_ASSERT_HANDLER_DEFAULT();\
+		et::detail::FatalHandler(level);\
+	}\
+	while (false)
+#	endif // ET_PLATFORM_WIN	
 
 #endif // ET_CT_ASSERT
 
@@ -110,7 +130,7 @@ namespace et { namespace detail {
 
 // to check some state before relying on it
 #if ET_CT_IS_ENABLED(ET_CT_ASSERT)
-#	define ET_ASSERT(condition, ...) ET_ASSERT_IMPL(condition, __VA_ARGS__)
+#	define ET_ASSERT(condition, ...) ET_ASSERT_IMPL(condition, ##__VA_ARGS__)
 #else
 #	define ET_ASSERT(condition, ...)
 #endif 

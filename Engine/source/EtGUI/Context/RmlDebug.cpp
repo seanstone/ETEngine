@@ -156,7 +156,7 @@ void RmlDebug::ShowRenderingUI()
 			for (auto const& geoPair : m_Renderer->m_Geometries)
 			{
 				RmlRenderer::Geometry const& geo = geoPair.second;
-				if (ImGui::TreeNode(FS("["ET_FMT_SIZET"] - %s", static_cast<size_t>(geoPair.first), (geo.m_Font != nullptr) ? "Font" : "Generic").c_str()))
+				if (ImGui::TreeNode(FS("[" ET_FMT_SIZET "] - %s", static_cast<size_t>(geoPair.first), (geo.m_Font != nullptr) ? "Font" : "Generic").c_str()))
 				{
 					ImGui::Text("vertices: %i", geo.m_NumVertices);
 					ImGui::Text("indices: %i", geo.m_NumIndices);
@@ -179,7 +179,7 @@ void RmlDebug::ShowRenderingUI()
 			for (auto const& texPair : m_Renderer->m_Textures)
 			{
 				RmlRenderer::Texture const& tex = texPair.second;
-				if (ImGui::TreeNode(FS("["ET_FMT_SIZET"] - %s", static_cast<size_t>(texPair.first), tex.GetId().ToStringDbg()).c_str()))
+				if (ImGui::TreeNode(FS("[" ET_FMT_SIZET "] - %s", static_cast<size_t>(texPair.first), tex.GetId().ToStringDbg()).c_str()))
 				{
 					AddOpaqueImage(tex.Get().Get(), s_MaxTextureScale);
 					ImGui::TreePop();
@@ -360,7 +360,7 @@ void RmlDebug::AddFontFace(size_t const faceIdx)
 	ET_ASSERT(faceIdx < m_FontEngine->m_Faces.size());
 	FontEngine::FontFace const& face = m_FontEngine->m_Faces[faceIdx];
 
-	if (ImGui::TreeNode(FS("["ET_FMT_SIZET"]", faceIdx).c_str()))
+	if (ImGui::TreeNode(FS("[" ET_FMT_SIZET "]", faceIdx).c_str()))
 	{
 		switch (face.m_Style)
 		{

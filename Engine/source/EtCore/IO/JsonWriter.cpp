@@ -293,7 +293,7 @@ bool Writer::WriteArray(Array const* const jArray)
 		// Write the pair
 		if (!WriteValue(jArray->value[idx]))
 		{
-			ET_TRACE_W(ET_CTX_CORE, "JSON::Writer::WriteArray > Failed to write value at index #"ET_FMT_SIZET"!", idx);
+			ET_TRACE_W(ET_CTX_CORE, "JSON::Writer::WriteArray > Failed to write value at index #" ET_FMT_SIZET "!", idx);
 			allValuesSucceeded = false;
 		}
 

@@ -3,10 +3,14 @@
 
 
 namespace et {
+
+namespace rhi {
+	class ShaderData;
+}
+
 namespace render {
 
 
-class rhi::ShaderData;
 class Material;
 class DirectionalShadowData;
 class Gbuffer;
